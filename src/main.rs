@@ -11,8 +11,8 @@ fn main() {
 	let os = general_readout.os_name().unwrap();
 
 	println!("");
-	println!("            {}@{}", username, hostname);
-	println!("     (o<    {}", os);
-	println!("  ~~<__)~~  {}", cpu);
+	println!("            \x1b[35m{}@{}\x1b[0m", username, hostname);
+	println!("     (o\x1b[33m<\x1b[0m    {}", os);
+	println!("  \x1b[34m~~\x1b[0m<__)\x1b[34m~~\x1b[0m  {}", cpu);
 	println!("");
 }
