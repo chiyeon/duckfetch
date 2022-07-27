@@ -13,7 +13,7 @@ int main() {
 		if(uname(&info) < 0) {
 			os = "Linux";
 		}
-		os = info.sysname + "@" + info.release;
+		os = info.sysname;
 	#elif defined(__APPLE__) || defined(__MACH__)
 		os = "macOS"
 	#elif defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
