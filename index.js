@@ -2,9 +2,9 @@ const fs = require("fs")
 const os = require("os")
 
 const ducky = [
-	"            ",
-	"     (o\x1b[33m<\x1b[0m    ",
-	"  \x1b[34m~~\x1b[0m<__)\x1b[34m~~\x1b[0m  ",
+	"        ",
+	"   (o\x1b[33m<\x1b[0m  ",
+	"\x1b[34m~~\x1b[0m<__)\x1b[34m~~\x1b[0m",
 ]
 
 async function get_distro() {
@@ -86,19 +86,19 @@ async function start() {
 	//console.log(ducky[0].escape())
 	line = (shortened ? "" : "user: ") + os.userInfo().username
 	console.log("\n%s%s",
-		flatten ? ducky[0] : "",
+		flatten ? ducky[0] + " " : "",
 		center ? align_center(line, width) : line
 	)
 
 	line = (shortened ? "" : "sys: ") + os.hostname()
 	console.log("%s%s",
-		flatten ? ducky[1] : "",
+		flatten ? ducky[1] + " " : "",
 		center ? align_center(line, width) : line
 	)
 
 	line = (shortened ? "" : "os: ") + await get_os()
 	console.log("%s%s\n",
-		flatten ? ducky[2] : "",
+		flatten ? ducky[2] + " " : "",
 		center ? align_center(line, width) : line
 	)
 }
