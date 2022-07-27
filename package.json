@@ -6,9 +6,9 @@
   "scripts": {
     "start": "node index.js"
   },
+  "bin": {
+    "duckfetch": "index.js"
+  },
   "author": "Benjamin Wong",
-  "license": "ISC",
-  "dependencies": {
-    "fs": "^0.0.1-security"
-  }
+  "license": "ISC"
 }
