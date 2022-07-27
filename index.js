@@ -62,7 +62,7 @@ function largest_of(array) {
 async function start() {
 	var help = process.argv.includes("-h") || process.argv.includes("--help")
 	var flatten = process.argv.includes("-f") || process.argv.includes("--flatten")
-	var shortened = process.argv.includes("-s") || process.argv.includes("--shorten")
+	var shortened = process.argv.includes("-s") || process.argv.includes("--simple")
 	var center = process.argv.includes("-c") || process.argv.includes("--center")
 
 	var username = os.userInfo().username
@@ -73,14 +73,14 @@ async function start() {
 		console.log("ducker is a simple system fetcher. It can be called by default with no addition arguments as follows: ducker")
 		console.log()
 		console.log("Optional Arguments")
-		console.log("     -h/--help: Prints this help menu")
-		console.log("  -f/--flatten: Outputs horizontally as opposed to vertically (default)")
-		console.log("  -s/--shorten: Minifies output slightly")
-		console.log("   -c/--center: Center aligns output")
+		console.log(" [-h/--help]    : Prints this help menu")
+		console.log(" [-f/--flatten] : Outputs horizontally as opposed to vertically (default)")
+		console.log(" [-s/--simple]  : Minifies output slightly")
+		console.log(" [-c/--center]  : Center aligns output")
 		return
 	}
 
-	if (center) width = 6 + largest_of([username, hostname, opsys]).length
+	if (center) width = (shortened ? 0 : 6) + largest_of([ducky[0], username, hostname, opsys]).length
 	if (!flatten) ducky.forEach(line => console.log(center ? align_center(line, width, ducky[0].length): line))
 
 	//console.log(ducky[0].escape())
