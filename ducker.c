@@ -13,14 +13,9 @@ int main() {
 		if(uname(&info) < 0) {
 			os = "Linux";
 		}
-		os = info.sysname;
+		os = info.sysname + "@" + info.release;
 	#elif defined(__APPLE__) || defined(__MACH__)
-		//os = "macOS";
-		struct utsname info;
-		if(uname(&info) < 0) {
-			os = "err";
-		}
-		os = info.sysname;
+		os = "macOS"
 	#elif defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
 		os = "Windows";
 	#elif defined(__FreeBSD__)
