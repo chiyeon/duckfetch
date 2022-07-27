@@ -14,8 +14,10 @@ async function get_distro() {
 
 			const lines = data.split("\n")
 			lines.forEach((line) => {
-				if(line.includes("ID=")) resolve(line.split("=")[1])
-				console.log("test")
+				words = line.split("=")
+				if(words.length > 0) {
+					if(words[0] == "ID") return resolve(words[1])
+				}
 			})
 
 			resolve("linux")
@@ -36,9 +38,39 @@ async function get_os() {
 }
 
 async function start() {
-	console.log("\n" + ducky[0] + os.userInfo().username)
-	console.log(ducky[1] + os.hostname())
-	console.log(ducky[2] + await get_os() + "\n")
+	var help = process.argv.includes("-h") || process.argv.includes("--help")
+	var flatten = process.argv.includes("-f") || process.argv.includes("--flatten")
+	var shortened = process.argv.includes("-s") || process.argv.includes("--shorten")
+
+	if (help) {
+		console.log("ducker is a simple system fetcher. It can be called by default with no addition arguments as follows: ducker")
+		console.log()
+		console.log("Optional Arguments")
+		console.log("     -h/--help: Prints this help menu")
+		console.log("  -f/--flatten: Outputs horizontally as opposed to vertically")
+		console.log("  -s/--shorten: Minifies output slightly")
+		return
+	}
+
+	if (!flatten) ducky.forEach(line => console.log(line))
+	
+	console.log("\n%s%s %s",
+		flatten ? ducky[0] : " ",
+		shortened ? "" : "user:",
+		os.userInfo().username
+	)
+
+	console.log("%s%s %s",
+		flatten ? ducky[1] : " ",
+		shortened ? "" : " sys:",
+		os.hostname()
+	)
+
+	console.log("%s%s %s\n",
+		flatten ? ducky[2] : " ",
+		shortened ? "" : "  os:",
+		await get_os()
+	)
 }
 
 start()
