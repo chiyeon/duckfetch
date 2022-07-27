@@ -1,0 +1,14 @@
+{
+  "name": "ducker",
+  "version": "1.0.0",
+  "description": "a simple system fetcher",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Benjamin Wong",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
