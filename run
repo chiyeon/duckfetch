@@ -1,0 +1,2 @@
+gcc ducker.c -o ducker.o
+./ducker.o

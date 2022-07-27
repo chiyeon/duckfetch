@@ -1,20 +1,26 @@
-#if defined(unix) || defined(__unix__) || defined(__unix)
-# define PREDEF_PLATFORM_UNIX
-#endif
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <unistd.h>
 #include <limits.h>
+#include <sys/utsname.h>
 
 int main() {
 
 	char *os;
 
 	#if defined(__linux__)
-		os = "Linux";
-		// TODO get distribution
+		struct utsname info;
+		if(uname(&info) < 0) {
+			os = "Linux";
+		}
+		os = info.sysname;
 	#elif defined(__APPLE__) || defined(__MACH__)
-		os = "macOS";
+		//os = "macOS";
+		struct utsname info;
+		if(uname(&info) < 0) {
+			os = "err";
+		}
+		os = info.sysname;
 	#elif defined(_WIN32) || defined(_WIN64) || defined(__CYGWIN__)
 		os = "Windows";
 	#elif defined(__FreeBSD__)
@@ -30,5 +36,6 @@ int main() {
 	printf("            %s\n", username);
 	printf("     (o<    %s\n", hostname);
 	printf("  ~~<__)~~  %s\n", os);
+	printf("\n");
 	return 0;
 }
