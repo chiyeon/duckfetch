@@ -13,12 +13,9 @@ async function get_distro() {
 			if (err) throw err
 
 			const lines = data.split("\n")
-			lines.forEach((line, index) => {
-				const words = line.split("=")
-				if(words.length > 0) {
-					if(words[0] == "ID") resolve(words[1])
-					return;
-				}
+			lines.forEach((line) => {
+				if(line.includes("ID=")) resolve(line.split("=")[1])
+				console.log("test")
 			})
 
 			resolve("linux")
