@@ -1,6 +1,6 @@
 {
   "name": "duckfetch",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "a simple system fetcher",
   "keywords": [
     "system-fetch",
@@ -13,12 +13,12 @@
   },
   "contributors": [
     {
-    	"name": "Benjamin Wong",
-    	"url": "https://benjiwong.com"
+      "name": "Benjamin Wong",
+      "url": "https://benjiwong.com"
     },
     {
-    	"name": "Raymond Wang",
-    	"urL": "https://waymondrang.com"
+      "name": "Raymond Wang",
+      "urL": "https://waymondrang.com"
     }
   ],
   "license": "ISC",
