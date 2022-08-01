@@ -1,14 +1,32 @@
 {
-  "name": "ducker",
-  "version": "1.0.0",
+  "name": "duckfetch",
+  "version": "1.0.3",
   "description": "a simple system fetcher",
+  "keywords": [
+    "system-fetch",
+    "system-info",
+    "fetch"
+  ],
   "main": "index.js",
-  "scripts": {
-    "start": "node index.js"
-  },
   "bin": {
     "duckfetch": "index.js"
   },
-  "author": "Benjamin Wong",
-  "license": "ISC"
+  "contributors": [
+    {
+    	"name": "Benjamin Wong",
+    	"url": "https://benjiwong.com"
+    },
+    {
+    	"name": "Raymond Wang",
+    	"urL": "https://waymondrang.com"
+    }
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chiyeon/duckfetch.git"
+  },
+  "dependencies": {
+    "duckfetch": "^1.0.2"
+  }
 }
